@@ -1,5 +1,5 @@
 import { html, fixture, expect } from '@open-wc/testing';
-import { stub } from 'sinon';
+import Sinon, { stub } from 'sinon';
 import '../src/LoanBasicDetails/BasicDetails.js';
 
 
@@ -13,35 +13,18 @@ describe('Basic details', () => {
 
   it('should convert num to word', async () =>{
     const element = await fixture(html` <basic-details></basic-details> `);
-    await element.shadowRoot.querySelector('#amount').setAttribute('modelValue', 199999);
-    setTimeout(() => {
-      change
-    }, 1000);
-    expect(element._numToWord).to.be.string;
-
-
-    // const listener = oneEvent(element, 'keyup');
-    // element.shadowRoot.querySelector('#amount').keyup();
-    // const { detail } = await listener;
-    // expect(detail).to.equal('expected value');
-
+    const spy = Sinon.spy(element, '_numToWord');
+    const amount = element.shadowRoot.querySelector('lion-input-amount');
+    amount.modelValue = 10000;
+    element._numToWord();
+    expect(spy).to.have.calledOnce;
 
   });
 
   it('should capture on button click', async()=>{
-    const element = await fixture(html` <basic-details></basic-details> `);
-    // const clickButton = () => element.shadowRoot.querySelector('.btn-prev-nxt-parent.btn-next').click();
-    // setTimeout(clickButton);
-    // const clickButton = element.shadowRoot.querySelector('.btn-prev-nxt-parent.btn-next').addEventListener('click', onClick, false);
-    // element.shadowRoot.querySelector('.btn-prev-nxt-parent.btn-next').onclick = () => { 
-    //   //...
-    // };
-
-    const clickButton = () => {
-      element.shadowRoot.querySelector('.btn-prev-nxt-parent.btn-next').addEventListener("click", function() {
-        expect(element._captureDetails()).to.be.accessible();
-      });
-    };
+    // const element = await fixture(html` <basic-details></basic-details> `);
+    // const btn = 
+    
 
   })
 });
