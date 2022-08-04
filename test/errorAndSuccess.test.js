@@ -5,8 +5,16 @@ import '../src/SuccessAndError/Error.js';
 
 describe('Success screen ', () => {
   // Write test cases inside this block
+  it('should access success screen', async()=>{
+    const e = await fixture(html `<loan-success></loan-success>`);
+    expect(e).to.be.accessible();
+  });
 });
 
 describe('error screen', () => {
   // Write test cases inside this block
+  xit('should access error screen', async()=>{
+    const e = await fixture(html `<loan-error></loan-error>`);
+    expect(e).to.be.accessible();
+  });
 });
