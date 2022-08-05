@@ -10,9 +10,9 @@ describe('LoanApplication', () => {
   });
 
   it('should increment the count', async()=>{
-    const e = await fixture(html `<loan-application></loan-application>`);
-    
-    expect(el.__increment()).to.equal(8);
+    const e = await fixture(html `<loan-application .counter=${3}></loan-application>`);
+    e.__increment();  
+    expect(e.counter).to.equal(4);
   })
 
 

@@ -13,8 +13,8 @@ describe('Success screen ', () => {
 
 describe('error screen', () => {
   // Write test cases inside this block
-  xit('should access error screen', async()=>{
-    const e = await fixture(html `<loan-error></loan-error>`);
+  it('should access error screen', ()=>{
+    const e = fixture(html `<loan-error></loan-error>`);
     expect(e).to.be.accessible();
   });
 });
