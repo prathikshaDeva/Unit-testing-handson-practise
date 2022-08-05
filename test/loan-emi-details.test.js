@@ -4,10 +4,7 @@ import '../src/LoanEMIDetails/LoanEMIDetails.js';
 describe('Loan EMI details', () => {
   // Write test cases inside this block
 
-  it('should access loanemi-details', async()=>{
-    // const e = await fixture(html `<loanemi-details ._data=${_data}></loanemi-details>`);
-    // console.log(e._data);
-    // expect(e).to.be.accessible();
+  xit('should access loanemi-details', async()=>{
     var _data = {
       "interestRate": 10,
       "monthlyEMI": 2,
@@ -17,9 +14,15 @@ describe('Loan EMI details', () => {
     };
     const e = await fixture(html `<loanemi-details ._data=${_data}></loanemi-details>`);
     console.log(e);
-
-
   });
+
+  xit('should check for method', async()=>{
+    const e = await fixture(html `<loanemi-details></loanemi-details>`);
+    const spy = Sinon.spy(e,'_toBasicDetails');
+    const btn = e.shadowRoot.querySelector('lion-button')[0];
+    btn.click();
+    expect(spy.called).to.be.true;
+  })
 });
 
 
