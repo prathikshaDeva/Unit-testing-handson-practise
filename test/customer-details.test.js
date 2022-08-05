@@ -15,16 +15,6 @@ describe('customer details', () => {
     btn.click();
   });
 
-//   it('should get 7', async () => {
-//     await fetch('https://loanfeapi.herokuapp.com/submit-form')
-//         .then((res) => {
-//             return res.json()
-//         })
-//         .then((res) => {
-//             console.log(res);
-//             assert.equal(res.count, 7)
-//         })
-// })
-
-
 });
+
+

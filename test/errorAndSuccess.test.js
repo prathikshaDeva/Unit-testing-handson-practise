@@ -9,6 +9,12 @@ describe('Success screen ', () => {
     const e = await fixture(html `<loan-success></loan-success>`);
     expect(e).to.be.accessible();
   });
+
+  it('should go to home on button click', async ()=>{
+    const element = await fixture(html `<loan-success></loan-success>`);
+    const btn = element.shadowRoot.querySelector('lion-button');
+    btn.click();
+  });
 });
 
 describe('error screen', () => {
@@ -16,5 +22,11 @@ describe('error screen', () => {
   it('should access error screen', ()=>{
     const e = fixture(html `<loan-error></loan-error>`);
     expect(e).to.be.accessible();
+  });
+
+  it('should go to home on button click', async ()=>{
+    const element = await fixture(html `<loan-error></loan-error>`);
+    const btn = element.shadowRoot.querySelector('lion-button');
+    btn.click();
   });
 });
